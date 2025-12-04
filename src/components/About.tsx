@@ -1,13 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { FiDownload, FiCode, FiPenTool, FiDatabase } from 'react-icons/fi'
-
-const highlights = [
-  { icon: FiCode, title: 'Clean Code', description: 'Writing maintainable and scalable code' },
-  { icon: FiPenTool, title: 'UI/UX Design', description: 'Creating beautiful user experiences' },
-  { icon: FiDatabase, title: 'Full Stack', description: 'End-to-end application development' },
-]
+import Image from 'next/image'
 
 export default function About() {
   return (
@@ -42,28 +36,20 @@ export default function About() {
               <div className="absolute inset-4 glass rounded-3xl overflow-hidden">
                 <div className="w-full h-full bg-gradient-to-br from-primary/10 to-secondary/10 flex items-center justify-center">
                   <div className="text-center p-8">
-                    <div className="w-32 h-32 mx-auto rounded-full bg-gradient-to-br from-primary to-secondary mb-6 flex items-center justify-center text-6xl">
-                      👨‍💻
+                    <div className="w-48 h-48 mx-auto rounded-full overflow-hidden mb-6 ring-4 ring-primary/30">
+                      <Image
+                        src="https://lochanabandara.vercel.app/static/media/profile-photo.9a36113c8b1815d1432b.jpg"
+                        alt="Lochana Bandara"
+                        width={192}
+                        height={192}
+                        className="w-full h-full object-cover"
+                      />
                     </div>
                     <h3 className="text-2xl font-bold gradient-text">Lochana Bandara</h3>
-                    <p className="text-gray-400 mt-2">Software Developer</p>
+                    <p className="text-gray-400 mt-2">AI/ML Enthusiast</p>
                   </div>
                 </div>
               </div>
-              
-              {/* Floating Badge */}
-              <motion.div
-                initial={{ opacity: 0, scale: 0 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.3, type: 'spring' }}
-                className="absolute -right-4 -bottom-4 glass rounded-2xl p-4"
-              >
-                <div className="text-center">
-                  <span className="text-3xl font-bold gradient-text">2+</span>
-                  <p className="text-sm text-gray-400">Years Experience</p>
-                </div>
-              </motion.div>
             </div>
           </motion.div>
 
@@ -75,51 +61,34 @@ export default function About() {
             transition={{ duration: 0.5 }}
           >
             <h3 className="text-2xl md:text-3xl font-bold mb-6">
-              Passionate Developer Creating <span className="gradient-text">Digital Excellence</span>
+              Passionate About <span className="gradient-text">AI & Innovation</span>
             </h3>
             
             <p className="text-gray-400 mb-6 leading-relaxed">
-              I&apos;m a dedicated full-stack developer with a passion for creating beautiful, 
-              functional, and user-centered digital experiences. With expertise in modern 
-              web technologies, I transform ideas into reality through clean code and 
-              innovative solutions.
+              Highly motivated and results-driven second-year Computer Engineering
+              undergraduate at the Faculty of Engineering, University of Sri Jayewardenepura, 
+              with a strong foundation in Full Stack Development, Machine Learning, and Generative AI.
             </p>
             
-            <p className="text-gray-400 mb-8 leading-relaxed">
-              When I&apos;m not coding, you&apos;ll find me exploring new technologies, contributing 
-              to open-source projects, or sharing knowledge with the developer community. 
-              I believe in continuous learning and staying updated with the latest industry trends.
+            <p className="text-gray-400 mb-6 leading-relaxed">
+              Passionate about implementing AI-driven solutions in software to drive
+              innovation and solve real-world problems. Seeking opportunities to apply my technical
+              expertise in AI and software development to create impactful solutions.
             </p>
 
-            {/* Highlights */}
-            <div className="grid sm:grid-cols-3 gap-4 mb-8">
-              {highlights.map((item, index) => (
-                <motion.div
-                  key={item.title}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.1 }}
-                  className="glass rounded-xl p-4 text-center hover:bg-white/10 transition-colors duration-300"
-                >
-                  <item.icon className="w-8 h-8 mx-auto text-primary mb-2" />
-                  <h4 className="font-medium text-sm">{item.title}</h4>
-                  <p className="text-xs text-gray-500 mt-1">{item.description}</p>
-                </motion.div>
-              ))}
+            {/* Education */}
+            <div className="glass rounded-2xl p-6">
+              <div className="flex items-center gap-4">
+                <div className="w-12 h-12 bg-gradient-to-br from-primary to-secondary rounded-xl flex items-center justify-center">
+                  🎓
+                </div>
+                <div>
+                  <h4 className="font-semibold text-lg">B.Sc. in Computer Engineering</h4>
+                  <p className="text-gray-400">University of Sri Jayewardenepura</p>
+                  <p className="text-sm text-primary">2022 - Present</p>
+                </div>
+              </div>
             </div>
-
-            {/* Download CV Button */}
-            <motion.a
-              href="/resume.pdf"
-              download
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-primary to-secondary rounded-full text-white font-medium hover:shadow-lg hover:shadow-primary/25 transition-all duration-300"
-            >
-              <FiDownload size={20} />
-              Download Resume
-            </motion.a>
           </motion.div>
         </div>
       </div>

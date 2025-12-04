@@ -2,61 +2,35 @@
 
 import { motion } from 'framer-motion'
 import { FiGithub, FiExternalLink, FiFolder } from 'react-icons/fi'
+import Image from 'next/image'
 
 const projects = [
   {
-    title: 'E-Commerce Platform',
-    description: 'A full-featured online shopping platform with cart functionality, user authentication, and payment integration.',
-    image: '/projects/ecommerce.jpg',
-    tags: ['Next.js', 'TypeScript', 'Tailwind', 'Stripe'],
-    github: 'https://github.com/LochanaBandara03',
-    live: '#',
+    title: 'Smart Traffic Management System',
+    description: 'Optimized traffic flow using Machine Learning and Computer Vision. Built with YOLOv5 for real-time vehicle detection and traffic analysis.',
+    image: 'https://lochanabandara.vercel.app/static/media/traffic.8bef0c07d0f470bb146f.png',
+    tags: ['YOLOv5', 'TensorFlow', 'Python', 'Computer Vision'],
+    github: 'https://github.com/LochanaBandara03/Traffic-management-system',
+    live: '',
     featured: true,
   },
   {
-    title: 'Task Management App',
-    description: 'A collaborative project management tool with real-time updates, drag-and-drop interface, and team features.',
-    image: '/projects/taskapp.jpg',
-    tags: ['React', 'Node.js', 'MongoDB', 'Socket.io'],
-    github: 'https://github.com/LochanaBandara03',
-    live: '#',
-    featured: true,
-  },
-  {
-    title: 'AI Chat Application',
-    description: 'An intelligent chatbot application powered by OpenAI API with conversation history and custom personas.',
-    image: '/projects/aichat.jpg',
-    tags: ['Next.js', 'OpenAI', 'Prisma', 'PostgreSQL'],
-    github: 'https://github.com/LochanaBandara03',
-    live: '#',
+    title: 'Heart Disease Classification',
+    description: 'Classification of heart disease using Machine Learning algorithms. Data analysis and visualization with comprehensive model evaluation.',
+    image: 'https://lochanabandara.vercel.app/static/media/classification.a5d0998f0e1260061cbd.png',
+    tags: ['Python', 'Pandas', 'Matplotlib', 'Scikit-learn'],
+    github: 'https://github.com/LochanaBandara03/Heart-disease-classification',
+    live: '',
     featured: true,
   },
   {
     title: 'Portfolio Website',
-    description: 'A modern personal portfolio website with smooth animations and responsive design.',
-    image: '/projects/portfolio.jpg',
-    tags: ['Next.js', 'Framer Motion', 'Tailwind'],
-    github: 'https://github.com/LochanaBandara03',
+    description: 'Personal portfolio website built with React and TailwindCSS. Showcasing my projects and skills with modern design.',
+    image: 'https://lochanabandara.vercel.app/static/media/portfolio.7371838d01aba202f7ab.png',
+    tags: ['React', 'TailwindCSS', 'JavaScript'],
+    github: 'https://github.com/LochanaBandara03/Portfolio_web',
     live: 'https://itslochana.me',
-    featured: false,
-  },
-  {
-    title: 'Weather Dashboard',
-    description: 'Real-time weather application with location search, forecasts, and beautiful visualizations.',
-    image: '/projects/weather.jpg',
-    tags: ['React', 'Weather API', 'Chart.js'],
-    github: 'https://github.com/LochanaBandara03',
-    live: '#',
-    featured: false,
-  },
-  {
-    title: 'Blog Platform',
-    description: 'A content management system with markdown support, SEO optimization, and admin dashboard.',
-    image: '/projects/blog.jpg',
-    tags: ['Next.js', 'MDX', 'Tailwind'],
-    github: 'https://github.com/LochanaBandara03',
-    live: '#',
-    featured: false,
+    featured: true,
   },
 ]
 
@@ -100,10 +74,13 @@ export default function Projects() {
             >
               {/* Project Image */}
               <div className={`relative group ${index % 2 === 1 ? 'lg:order-2' : ''}`}>
-                <div className="relative overflow-hidden rounded-2xl">
-                  <div className="aspect-video bg-gradient-to-br from-primary/20 to-secondary/20 glass flex items-center justify-center">
-                    <FiFolder className="w-24 h-24 text-primary/50" />
-                  </div>
+                <div className="relative overflow-hidden rounded-2xl aspect-video">
+                  <Image
+                    src={project.image}
+                    alt={project.title}
+                    fill
+                    className="object-cover"
+                  />
                   <div className="absolute inset-0 bg-gradient-to-t from-darker/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-6 gap-4">
                     <motion.a
                       href={project.github}
@@ -114,15 +91,17 @@ export default function Projects() {
                     >
                       <FiGithub size={20} />
                     </motion.a>
-                    <motion.a
-                      href={project.live}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      whileHover={{ scale: 1.1 }}
-                      className="p-3 glass rounded-full hover:bg-white/20 transition-colors"
-                    >
-                      <FiExternalLink size={20} />
-                    </motion.a>
+                    {project.live && (
+                      <motion.a
+                        href={project.live}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        whileHover={{ scale: 1.1 }}
+                        className="p-3 glass rounded-full hover:bg-white/20 transition-colors"
+                      >
+                        <FiExternalLink size={20} />
+                      </motion.a>
+                    )}
                   </div>
                 </div>
               </div>
@@ -134,7 +113,7 @@ export default function Projects() {
                 <div className="glass rounded-xl p-6 mb-4">
                   <p className="text-gray-400">{project.description}</p>
                 </div>
-                <div className={`flex flex-wrap gap-2 ${index % 2 === 1 ? 'lg:justify-end' : ''}`}>
+                <div className={`flex flex-wrap gap-2 mb-6 ${index % 2 === 1 ? 'lg:justify-end' : ''}`}>
                   {project.tags.map(tag => (
                     <span
                       key={tag}
@@ -144,63 +123,28 @@ export default function Projects() {
                     </span>
                   ))}
                 </div>
-              </div>
-            </motion.div>
-          ))}
-        </div>
-
-        {/* Other Projects Grid */}
-        <motion.h3
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="text-2xl font-bold text-center mb-12"
-        >
-          Other Noteworthy Projects
-        </motion.h3>
-
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {projects.filter(p => !p.featured).map((project, index) => (
-            <motion.div
-              key={project.title}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.1 }}
-              whileHover={{ y: -10 }}
-              className="glass rounded-xl p-6 hover:bg-white/10 transition-all duration-300 group"
-            >
-              <div className="flex items-center justify-between mb-4">
-                <FiFolder className="w-10 h-10 text-primary" />
-                <div className="flex gap-3">
+                <div className={`flex gap-4 ${index % 2 === 1 ? 'lg:justify-end' : ''}`}>
                   <a
                     href={project.github}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-gray-400 hover:text-primary transition-colors"
+                    className="flex items-center gap-2 px-4 py-2 glass rounded-lg hover:bg-white/10 transition-all"
                   >
-                    <FiGithub size={20} />
+                    <FiGithub className="w-5 h-5" />
+                    <span>Code</span>
                   </a>
-                  <a
-                    href={project.live}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-gray-400 hover:text-primary transition-colors"
-                  >
-                    <FiExternalLink size={20} />
-                  </a>
+                  {project.live && (
+                    <a
+                      href={project.live}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-primary to-secondary rounded-lg hover:opacity-90 transition-opacity"
+                    >
+                      <FiExternalLink className="w-5 h-5" />
+                      <span>Live Demo</span>
+                    </a>
+                  )}
                 </div>
-              </div>
-              <h4 className="text-xl font-bold mb-2 group-hover:text-primary transition-colors">
-                {project.title}
-              </h4>
-              <p className="text-gray-400 text-sm mb-4">{project.description}</p>
-              <div className="flex flex-wrap gap-2">
-                {project.tags.map(tag => (
-                  <span key={tag} className="text-xs text-gray-500">
-                    {tag}
-                  </span>
-                ))}
               </div>
             </motion.div>
           ))}

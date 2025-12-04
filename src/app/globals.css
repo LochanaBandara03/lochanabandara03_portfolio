@@ -2,29 +2,50 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --bg-primary: #0a0a0f;
+  --bg-secondary: #111118;
+  --text-primary: #ffffff;
+  --text-secondary: #9ca3af;
+  --glass-bg: rgba(255, 255, 255, 0.05);
+  --glass-border: rgba(255, 255, 255, 0.1);
+}
+
+html.light {
+  --bg-primary: #ffffff;
+  --bg-secondary: #f8fafc;
+  --text-primary: #0f172a;
+  --text-secondary: #475569;
+  --glass-bg: rgba(255, 255, 255, 0.7);
+  --glass-border: rgba(0, 0, 0, 0.1);
+}
+
 @layer base {
   html {
     scroll-behavior: smooth;
   }
 
   body {
-    @apply bg-darker text-white;
-  }
-
-  ::selection {
-    @apply bg-primary/30 text-white;
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    transition: background-color 0.3s ease, color 0.3s ease;
   }
 }
 
 @layer components {
   .gradient-text {
-    @apply bg-gradient-to-r from-primary via-purple-500 to-secondary bg-clip-text text-transparent;
+    background: linear-gradient(to right, #6366f1, #a855f7, #8b5cf6);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
     background-size: 200% auto;
     animation: gradient 3s linear infinite;
   }
 
   .glass {
-    @apply bg-white/5 backdrop-blur-lg border border-white/10;
+    background: var(--glass-bg);
+    backdrop-filter: blur(12px);
+    border: 1px solid var(--glass-border);
   }
 
   .glow {
@@ -34,6 +55,77 @@
   .glow-hover:hover {
     box-shadow: 0 0 50px -10px rgba(14, 165, 233, 0.6);
   }
+}
+
+/* Light mode backgrounds */
+html.light .bg-darker {
+  background-color: #ffffff;
+}
+
+html.light .bg-white\/5 {
+  background-color: rgba(0, 0, 0, 0.03);
+}
+
+html.light .bg-white\/10 {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+html.light .hover\:bg-white\/10:hover {
+  background-color: rgba(0, 0, 0, 0.08);
+}
+
+html.light .bg-primary\/5 {
+  background-color: rgba(99, 102, 241, 0.05);
+}
+
+html.light .bg-primary\/20 {
+  background-color: rgba(99, 102, 241, 0.1);
+}
+
+html.light .bg-primary\/30 {
+  background-color: rgba(99, 102, 241, 0.15);
+}
+
+html.light .bg-secondary\/20 {
+  background-color: rgba(139, 92, 246, 0.1);
+}
+
+html.light .bg-secondary\/30 {
+  background-color: rgba(139, 92, 246, 0.15);
+}
+
+/* Light mode text colors */
+html.light .text-white {
+  color: #0f172a;
+}
+
+html.light .text-gray-300 {
+  color: #334155;
+}
+
+html.light .text-gray-400 {
+  color: #475569;
+}
+
+html.light .text-gray-500 {
+  color: #64748b;
+}
+
+/* Light mode borders */
+html.light .border-white\/10 {
+  border-color: rgba(0, 0, 0, 0.1);
+}
+
+/* Light mode glass effect */
+html.light .glass {
+  background: rgba(255, 255, 255, 0.8);
+  border-color: rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+/* Light mode gradient backgrounds */
+html.light .from-primary\/20 {
+  --tw-gradient-from: rgba(99, 102, 241, 0.1);
 }
 
 @layer utilities {
@@ -48,7 +140,7 @@
 }
 
 ::-webkit-scrollbar-track {
-  background: #020617;
+  background: var(--bg-primary);
 }
 
 ::-webkit-scrollbar-thumb {

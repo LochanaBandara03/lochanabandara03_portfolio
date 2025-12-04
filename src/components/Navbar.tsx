@@ -2,19 +2,22 @@
 
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { FiMenu, FiX } from 'react-icons/fi'
+import { FiMenu, FiX, FiSun, FiMoon } from 'react-icons/fi'
+import { useTheme } from './ThemeProvider'
 
 const navItems = [
   { name: 'Home', href: '#home' },
   { name: 'About', href: '#about' },
   { name: 'Skills', href: '#skills' },
   { name: 'Projects', href: '#projects' },
+  { name: 'Blog', href: '#blog' },
   { name: 'Contact', href: '#contact' },
 ]
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const { theme, toggleTheme } = useTheme()
 
   useEffect(() => {
     const handleScroll = () => {
@@ -70,15 +73,46 @@ export default function Navbar() {
             >
               Hire Me
             </motion.a>
+            
+            {/* Theme Toggle */}
+            <motion.button
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.6 }}
+              onClick={toggleTheme}
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.9 }}
+              className="p-2 glass rounded-full hover:bg-white/10 transition-all duration-300"
+              aria-label="Toggle theme"
+            >
+              {theme === 'dark' ? (
+                <FiSun className="w-5 h-5 text-yellow-400" />
+              ) : (
+                <FiMoon className="w-5 h-5 text-slate-700" />
+              )}
+            </motion.button>
           </div>
 
           {/* Mobile Menu Button */}
-          <button
-            className="md:hidden text-white p-2"
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-          >
-            {isMobileMenuOpen ? <FiX size={24} /> : <FiMenu size={24} />}
-          </button>
+          <div className="md:hidden flex items-center gap-2">
+            <button
+              onClick={toggleTheme}
+              className="p-2 glass rounded-full"
+              aria-label="Toggle theme"
+            >
+              {theme === 'dark' ? (
+                <FiSun className="w-5 h-5 text-yellow-400" />
+              ) : (
+                <FiMoon className="w-5 h-5 text-slate-700" />
+              )}
+            </button>
+            <button
+              className="p-2"
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            >
+              {isMobileMenuOpen ? <FiX size={24} /> : <FiMenu size={24} />}
+            </button>
+          </div>
         </div>
 
         {/* Mobile Navigation */}

@@ -2,18 +2,17 @@
 
 import { useState } from 'react'
 import { motion } from 'framer-motion'
-import { FiMail, FiMapPin, FiPhone, FiSend, FiGithub, FiLinkedin, FiTwitter } from 'react-icons/fi'
+import { FiMail, FiMapPin, FiSend, FiGithub, FiLinkedin } from 'react-icons/fi'
+import { SiMedium } from 'react-icons/si'
 
 const contactInfo = [
-  { icon: FiMail, title: 'Email', value: 'hello@itslochana.me', href: 'mailto:hello@itslochana.me' },
+  { icon: FiMail, title: 'Email', value: 'lochanadisala2003@gmail.com', href: 'mailto:lochanadisala2003@gmail.com' },
   { icon: FiMapPin, title: 'Location', value: 'Sri Lanka', href: '#' },
-  { icon: FiPhone, title: 'Phone', value: '+94 XX XXX XXXX', href: 'tel:+94XXXXXXXX' },
 ]
 
 const socialLinks = [
   { icon: FiGithub, href: 'https://github.com/LochanaBandara03', label: 'GitHub' },
-  { icon: FiLinkedin, href: 'https://linkedin.com/in/', label: 'LinkedIn' },
-  { icon: FiTwitter, href: 'https://twitter.com/', label: 'Twitter' },
+  { icon: FiLinkedin, href: 'https://www.linkedin.com/in/lochana-bandara-51a723232/', label: 'LinkedIn' },
 ]
 
 export default function Contact() {

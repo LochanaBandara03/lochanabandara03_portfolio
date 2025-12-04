@@ -2,24 +2,28 @@
 
 import { motion } from 'framer-motion'
 import { 
-  SiReact, SiNextdotjs, SiTypescript, SiJavascript, 
-  SiTailwindcss, SiNodedotjs, SiPython, SiMongodb,
-  SiPostgresql, SiGit, SiFigma, SiDocker
+  SiReact, SiJavascript, SiHtml5, SiCss3,
+  SiTailwindcss, SiPython, SiCplusplus,
+  SiNumpy, SiPandas, SiScikitlearn,
+  SiPytorch, SiTensorflow, SiGit
 } from 'react-icons/si'
+import { FaJava } from 'react-icons/fa'
 
 const skills = [
-  { name: 'React', icon: SiReact, color: '#61DAFB', level: 90 },
-  { name: 'Next.js', icon: SiNextdotjs, color: '#ffffff', level: 85 },
-  { name: 'TypeScript', icon: SiTypescript, color: '#3178C6', level: 85 },
-  { name: 'JavaScript', icon: SiJavascript, color: '#F7DF1E', level: 95 },
-  { name: 'Tailwind CSS', icon: SiTailwindcss, color: '#06B6D4', level: 90 },
-  { name: 'Node.js', icon: SiNodedotjs, color: '#339933', level: 80 },
-  { name: 'Python', icon: SiPython, color: '#3776AB', level: 75 },
-  { name: 'MongoDB', icon: SiMongodb, color: '#47A248', level: 80 },
-  { name: 'PostgreSQL', icon: SiPostgresql, color: '#4169E1', level: 75 },
-  { name: 'Git', icon: SiGit, color: '#F05032', level: 85 },
-  { name: 'Figma', icon: SiFigma, color: '#F24E1E', level: 70 },
-  { name: 'Docker', icon: SiDocker, color: '#2496ED', level: 65 },
+  { name: 'HTML', icon: SiHtml5, color: '#E34F26', level: 90 },
+  { name: 'CSS', icon: SiCss3, color: '#1572B6', level: 85 },
+  { name: 'JavaScript', icon: SiJavascript, color: '#F7DF1E', level: 85 },
+  { name: 'React', icon: SiReact, color: '#61DAFB', level: 80 },
+  { name: 'Tailwind CSS', icon: SiTailwindcss, color: '#06B6D4', level: 85 },
+  { name: 'Java', icon: FaJava, color: '#007396', level: 75 },
+  { name: 'Python', icon: SiPython, color: '#3776AB', level: 85 },
+  { name: 'C++', icon: SiCplusplus, color: '#00599C', level: 70 },
+  { name: 'NumPy', icon: SiNumpy, color: '#013243', level: 75 },
+  { name: 'Pandas', icon: SiPandas, color: '#150458', level: 75 },
+  { name: 'Scikit-learn', icon: SiScikitlearn, color: '#F7931E', level: 70 },
+  { name: 'PyTorch', icon: SiPytorch, color: '#EE4C2C', level: 65 },
+  { name: 'TensorFlow', icon: SiTensorflow, color: '#FF6F00', level: 65 },
+  { name: 'Git', icon: SiGit, color: '#F05032', level: 80 },
 ]
 
 export default function Skills() {
@@ -48,7 +52,7 @@ export default function Skills() {
         </motion.div>
 
         {/* Skills Grid */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6">
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-7 gap-6">
           {skills.map((skill, index) => (
             <motion.div
               key={skill.name}
@@ -73,7 +77,7 @@ export default function Skills() {
                 <h3 className="font-medium text-sm mb-2">{skill.name}</h3>
                 
                 {/* Skill Level Bar */}
-                <div className="w-full h-1 bg-white/10 rounded-full overflow-hidden">
+                <div className="w-full h-1.5 bg-white/10 rounded-full overflow-hidden">
                   <motion.div
                     initial={{ width: 0 }}
                     whileInView={{ width: `${skill.level}%` }}
@@ -99,7 +103,7 @@ export default function Skills() {
         >
           <p className="text-gray-400">
             Also experienced with: 
-            <span className="text-gray-300"> REST APIs, GraphQL, Firebase, AWS, Vercel, GitHub Actions, Agile/Scrum</span>
+            <span className="text-gray-300"> Problem Solving, Data Analysis, Deep Learning, Computer Vision, NLP, GitHub, VS Code</span>
           </p>
         </motion.div>
       </div>
