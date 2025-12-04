@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 180">
+  <rect width="180" height="180" rx="30" fill="#0ea5a4"/>
+  <!-- Monitor -->
+  <rect x="40" y="40" width="100" height="70" rx="6" fill="#061826"/>
+  <rect x="48" y="48" width="84" height="50" rx="3" fill="#0ea5a4" opacity="0.3"/>
+  <!-- Code brackets -->
+  <text x="90" y="82" font-family="monospace" font-size="32" text-anchor="middle" fill="#fff">&lt;/&gt;</text>
+  <!-- Stand -->
+  <rect x="75" y="110" width="30" height="14" fill="#061826"/>
+  <rect x="60" y="124" width="60" height="10" rx="4" fill="#061826"/>
+</svg>
