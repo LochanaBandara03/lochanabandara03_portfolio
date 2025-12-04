@@ -6,9 +6,18 @@ import Image from 'next/image'
 
 const projects = [
   {
+    title: 'AI Assistant Based on Constitution of Sri Lanka',
+    description: 'Built an AI assistant to deliver accurate, source-backed answers to complex legal questions without reading entire legal documents, enhancing legal accessibility.',
+    image: '/ai-assistant.png',
+    tags: ['RAG', 'LangChain', 'ChromaDB', 'LLaMA 3.2', 'Ollama'],
+    github: '',
+    live: '',
+    featured: true,
+  },
+  {
     title: 'Smart Traffic Management System',
     description: 'Optimized traffic flow using Machine Learning and Computer Vision. Built with YOLOv5 for real-time vehicle detection and traffic analysis.',
-    image: 'https://lochanabandara.vercel.app/static/media/traffic.8bef0c07d0f470bb146f.png',
+    image: '/traffic-management.png',
     tags: ['YOLOv5', 'TensorFlow', 'Python', 'Computer Vision'],
     github: 'https://github.com/LochanaBandara03/Traffic-management-system',
     live: '',
@@ -17,19 +26,10 @@ const projects = [
   {
     title: 'Heart Disease Classification',
     description: 'Classification of heart disease using Machine Learning algorithms. Data analysis and visualization with comprehensive model evaluation.',
-    image: 'https://lochanabandara.vercel.app/static/media/classification.a5d0998f0e1260061cbd.png',
+    image: '/heart-classification.png',
     tags: ['Python', 'Pandas', 'Matplotlib', 'Scikit-learn'],
     github: 'https://github.com/LochanaBandara03/Heart-disease-classification',
     live: '',
-    featured: true,
-  },
-  {
-    title: 'Portfolio Website',
-    description: 'Personal portfolio website built with React and TailwindCSS. Showcasing my projects and skills with modern design.',
-    image: 'https://lochanabandara.vercel.app/static/media/portfolio.7371838d01aba202f7ab.png',
-    tags: ['React', 'TailwindCSS', 'JavaScript'],
-    github: 'https://github.com/LochanaBandara03/Portfolio_web',
-    live: 'https://itslochana.me',
     featured: true,
   },
 ]
@@ -47,13 +47,13 @@ export default function Projects() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="text-center mb-16"
+          className="text-center mb-10 sm:mb-16 px-2"
         >
-          <span className="text-primary text-sm font-medium tracking-wider uppercase">My Work</span>
-          <h2 className="text-4xl md:text-5xl font-bold mt-2">
+          <span className="text-primary text-xs sm:text-sm font-medium tracking-wider uppercase">My Work</span>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mt-2">
             Featured <span className="gradient-text">Projects</span>
           </h2>
-          <p className="text-gray-400 mt-4 max-w-2xl mx-auto">
+          <p className="text-gray-400 mt-3 sm:mt-4 max-w-2xl mx-auto text-sm sm:text-base">
             Here are some of my recent projects. Each one was built to solve a specific 
             problem and taught me something new.
           </p>
@@ -74,12 +74,12 @@ export default function Projects() {
             >
               {/* Project Image */}
               <div className={`relative group ${index % 2 === 1 ? 'lg:order-2' : ''}`}>
-                <div className="relative overflow-hidden rounded-2xl aspect-video">
-                  <Image
+                <div className="relative overflow-hidden rounded-2xl aspect-video flex items-center justify-center bg-black/10">
+                  <img
                     src={project.image}
                     alt={project.title}
-                    fill
-                    className="object-cover"
+                    className="object-cover w-full h-full rounded-2xl"
+                    style={{ maxHeight: '100%', maxWidth: '100%' }}
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-darker/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-6 gap-4">
                     <motion.a

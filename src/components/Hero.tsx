@@ -48,9 +48,11 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="text-xl sm:text-2xl md:text-3xl text-gray-400 mb-8"
+            className="text-lg sm:text-xl md:text-2xl lg:text-3xl text-gray-400 mb-8 px-4"
           >
-            Computer Engineering Undergraduate | <span className="text-primary">AI & ML Enthusiast</span>
+            <span className="block sm:inline">Computer Engineering Undergraduate</span>
+            <span className="hidden sm:inline"> | </span>
+            <span className="block sm:inline text-primary">AI & ML Enthusiast</span>
           </motion.h2>
 
           {/* Description */}
@@ -58,7 +60,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.3 }}
-            className="text-gray-400 text-lg max-w-2xl mx-auto mb-10"
+            className="text-gray-400 text-base sm:text-lg max-w-2xl mx-auto mb-10 px-4"
           >
             Passionate about implementing AI-driven solutions in software to drive innovation 
             and solve real-world problems. Experienced in Full Stack Development, Machine Learning, 
@@ -70,23 +72,17 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.4 }}
-            className="flex flex-col sm:flex-row gap-4 justify-center mb-10"
+            className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center mb-10 px-4 w-full sm:w-auto"
           >
             <a
               href="#projects"
-              className="px-8 py-4 bg-gradient-to-r from-primary to-secondary rounded-full font-medium hover:opacity-90 transition-opacity text-center"
+              className="px-6 sm:px-8 py-3 sm:py-4 bg-gradient-to-r from-primary to-secondary rounded-full font-medium hover:opacity-90 transition-opacity text-center text-sm sm:text-base"
             >
               View My Work
             </a>
-            {/* <a
-              href="#about"
-              className="px-8 py-4 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-full font-medium hover:opacity-90 transition-opacity text-center"
-            >
-              Learn More
-            </a> */}
             <a
               href="#about"
-              className="px-8 py-4 bg-gradient-to-r from-indigo-600 to-blue-600 rounded-full font-medium hover:opacity-90 transition-opacity text-center"
+              className="px-6 sm:px-8 py-3 sm:py-4 bg-gradient-to-r from-indigo-600 to-blue-600 rounded-full font-medium hover:opacity-90 transition-opacity text-center text-sm sm:text-base"
             >
               Download CV
             </a>

@@ -39,20 +39,20 @@ export default function Skills() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="text-center mb-16"
+          className="text-center mb-10 sm:mb-16 px-2"
         >
-          <span className="text-primary text-sm font-medium tracking-wider uppercase">My Skills</span>
-          <h2 className="text-4xl md:text-5xl font-bold mt-2">
+          <span className="text-primary text-xs sm:text-sm font-medium tracking-wider uppercase">My Skills</span>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mt-2">
             Technologies I <span className="gradient-text">Work With</span>
           </h2>
-          <p className="text-gray-400 mt-4 max-w-2xl mx-auto">
+          <p className="text-gray-400 mt-3 sm:mt-4 max-w-2xl mx-auto text-sm sm:text-base">
             I&apos;m constantly learning and expanding my skill set. Here are the technologies 
             and tools I use to bring ideas to life.
           </p>
         </motion.div>
 
         {/* Skills Grid */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-7 gap-6">
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-7 gap-3 sm:gap-4 md:gap-6">
           {skills.map((skill, index) => (
             <motion.div
               key={skill.name}
@@ -63,18 +63,17 @@ export default function Skills() {
               whileHover={{ y: -10, scale: 1.05 }}
               className="group"
             >
-              <div className="glass rounded-2xl p-6 text-center h-full hover:bg-white/10 transition-all duration-300 glow-hover">
+              <div className="glass rounded-xl sm:rounded-2xl p-3 sm:p-4 md:p-6 text-center h-full hover:bg-white/10 transition-all duration-300 glow-hover">
                 <div 
-                  className="w-14 h-14 mx-auto mb-4 flex items-center justify-center rounded-xl transition-all duration-300"
+                  className="w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 mx-auto mb-2 sm:mb-3 md:mb-4 flex items-center justify-center rounded-lg sm:rounded-xl transition-all duration-300"
                   style={{ backgroundColor: `${skill.color}15` }}
                 >
                   <skill.icon 
-                    size={32} 
+                    className="w-5 h-5 sm:w-6 sm:h-6 md:w-8 md:h-8 group-hover:scale-110 transition-transform duration-300"
                     style={{ color: skill.color }}
-                    className="group-hover:scale-110 transition-transform duration-300"
                   />
                 </div>
-                <h3 className="font-medium text-sm mb-2">{skill.name}</h3>
+                <h3 className="font-medium text-xs sm:text-sm mb-1 sm:mb-2">{skill.name}</h3>
                 
                 {/* Skill Level Bar */}
                 <div className="w-full h-1.5 bg-white/10 rounded-full overflow-hidden">
@@ -99,9 +98,9 @@ export default function Skills() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.3 }}
-          className="mt-16 text-center"
+          className="mt-10 sm:mt-16 text-center px-2"
         >
-          <p className="text-gray-400">
+          <p className="text-gray-400 text-sm sm:text-base">
             Also experienced with: 
             <span className="text-gray-300"> Problem Solving, Data Analysis, Deep Learning, Computer Vision, NLP, GitHub, VS Code</span>
           </p>

@@ -59,13 +59,13 @@ export default function Contact() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="text-center mb-16"
+          className="text-center mb-10 sm:mb-16 px-2"
         >
-          <span className="text-primary text-sm font-medium tracking-wider uppercase">Contact</span>
-          <h2 className="text-4xl md:text-5xl font-bold mt-2">
+          <span className="text-primary text-xs sm:text-sm font-medium tracking-wider uppercase">Contact</span>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mt-2">
             Get In <span className="gradient-text">Touch</span>
           </h2>
-          <p className="text-gray-400 mt-4 max-w-2xl mx-auto">
+          <p className="text-gray-400 mt-3 sm:mt-4 max-w-2xl mx-auto text-sm sm:text-base">
             Have a project in mind or want to collaborate? Feel free to reach out. 
             I&apos;m always open to discussing new opportunities.
           </p>
