@@ -13,10 +13,28 @@ const socialLinks = [
 export default function Hero() {
   return (
     <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden bg-darker">
-      {/* Background Effects */}
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-primary/20 via-transparent to-transparent" />
-      <div className="absolute top-1/4 -left-1/4 w-96 h-96 bg-primary/20 rounded-full blur-3xl animate-pulse" />
-      <div className="absolute bottom-1/4 -right-1/4 w-96 h-96 bg-secondary/20 rounded-full blur-3xl animate-pulse delay-1000" />
+      {/* Background Effects - simplified for Chrome Android compatibility */}
+      <div className="absolute inset-0 pointer-events-none" style={{ overflow: 'hidden' }}>
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-primary/20 via-transparent to-transparent" />
+        <div 
+          className="absolute w-72 h-72 sm:w-96 sm:h-96 bg-primary/20 rounded-full opacity-50"
+          style={{ 
+            top: '25%', 
+            left: '0', 
+            transform: 'translateX(-50%)',
+            filter: 'blur(60px)',
+          }} 
+        />
+        <div 
+          className="absolute w-72 h-72 sm:w-96 sm:h-96 bg-secondary/20 rounded-full opacity-50"
+          style={{ 
+            bottom: '25%', 
+            right: '0', 
+            transform: 'translateX(50%)',
+            filter: 'blur(60px)',
+          }} 
+        />
+      </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col items-center justify-center text-center">

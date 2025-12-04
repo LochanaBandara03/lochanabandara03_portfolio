@@ -94,11 +94,15 @@ export default function Navbar() {
           </div>
 
           {/* Mobile Menu Button */}
-          <div className="md:hidden flex items-center gap-2">
+          <div className="md:hidden flex items-center gap-3 relative z-50">
             <button
               onClick={toggleTheme}
-              className="p-2 glass rounded-full"
+              className="p-3 rounded-full border border-white/20 touch-manipulation"
               aria-label="Toggle theme"
+              style={{ 
+                WebkitTapHighlightColor: 'transparent',
+                backgroundColor: 'rgba(255, 255, 255, 0.1)',
+              }}
             >
               {theme === 'dark' ? (
                 <FiSun className="w-5 h-5 text-yellow-400" />
@@ -107,8 +111,13 @@ export default function Navbar() {
               )}
             </button>
             <button
-              className="p-2"
+              className="p-3 rounded-full border border-white/20 touch-manipulation"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              aria-label="Toggle menu"
+              style={{ 
+                WebkitTapHighlightColor: 'transparent',
+                backgroundColor: 'rgba(255, 255, 255, 0.1)',
+              }}
             >
               {isMobileMenuOpen ? <FiX size={24} /> : <FiMenu size={24} />}
             </button>
